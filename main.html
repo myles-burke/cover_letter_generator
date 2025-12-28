@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Cover Letter Generator</title>
+
+
+<style>
+    header {
+        text-align: center;
+    }
+
+    .input_section {
+        background-color: #f0f0f0;
+        padding: 15px;
+        margin-top: 100px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 10px;
+        border: 2px solid #ccc;
+    }
+
+    .gen_section {
+        text-align: center;
+    }
+
+    .genButton {
+        background-color: green;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .upload {
+        display: inline-block;
+        padding: 10px 18px;
+        background-color: black;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 15px;
+    }
+</style>
+</head>
+
+<body>
+<header>
+    <h1>Generate a Cover Letter</h1>
+</header>
+
+<form id="uploadForm" action="/data" method="POST" enctype="multipart/form-data">
+    <div class="input_section">
+        <h1>
+            Add a resume and job description
+        </h1>
+        <label class="upload">
+            Resume
+            <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx,.txt" style="display:none;">
+        </label>
+
+        <label class="upload">
+            Job Description
+            <input type="file" name="job" id="job" accept=".pdf,.doc,.docx,.txt" style="display:none;">
+        </label>
+
+        <p id="error" style="color:red; display:none;">
+            Please upload both a resume and a job description
+        </p>
+    </div>
+
+    <div class="gen_section">
+        <input type="submit" class="genbutton" value="Generate">
+    </div>
+</form>
+
+<p id="resumeName"></p>
+<p id="jobName"></p>
+
+<script>
+const resumeInput = document.getElementById("resume");
+const jobInput = document.getElementById("job");
+
+resumeInput.addEventListener("change", () => {
+    document.getElementById("resumeName").textContent = resumeInput.files[0]?.name || "";
+});
+
+jobInput.addEventListener("change", () => {
+    document.getElementById("jobName").textContent = jobInput.files[0]?.name || "";
+});
+
+// ✅ Corrected target for submit listener
+document.getElementById("uploadForm").addEventListener("submit", function(e) {
+    if (!resumeInput.files.length || !jobInput.files.length) {
+        e.preventDefault(); // stop form submission
+        alert("Error: Please upload both a resume and a job description!");
+        document.getElementById("error").style.display = "block";
+    }
+});
+</script>
+
+</body>
+</html>
