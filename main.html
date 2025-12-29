@@ -45,6 +45,7 @@
         margin: 10px;
         font-size: 15px;
     }
+
 </style>
 </head>
 
@@ -68,13 +69,13 @@
             <input type="file" name="job" id="job" accept=".pdf,.doc,.docx,.txt" style="display:none;">
         </label>
 
-        <p id="error" style="color:red; display:none;">
-            Please upload both a resume and a job description
+        <p id="error" style="color:red; font-size: 20px; display:none;">
+            Please upload both a resume and a job description!
         </p>
     </div>
 
     <div class="gen_section">
-        <input type="submit" class="genbutton" value="Generate">
+        <button type="submit" class="genButton">Generate</button>
     </div>
 </form>
 
@@ -93,7 +94,7 @@ jobInput.addEventListener("change", () => {
     document.getElementById("jobName").textContent = jobInput.files[0]?.name || "";
 });
 
-// ✅ Corrected target for submit listener
+
 document.getElementById("uploadForm").addEventListener("submit", function(e) {
     if (!resumeInput.files.length || !jobInput.files.length) {
         e.preventDefault(); // stop form submission
