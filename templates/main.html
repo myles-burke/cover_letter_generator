@@ -54,7 +54,7 @@
     <h1>Generate a Cover Letter</h1>
 </header>
 
-<form id="uploadForm" action="/data" method="POST" enctype="multipart/form-data">
+<form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
     <div class="input_section">
         <h1>
             Add a resume and job description
@@ -63,11 +63,14 @@
             Resume
             <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx,.txt" style="display:none;">
         </label>
+        <p id="resumeName" style="font-size: 20px; text-align: right"></p>
 
         <label class="upload">
             Job Description
             <input type="file" name="job" id="job" accept=".pdf,.doc,.docx,.txt" style="display:none;">
         </label>
+
+        <p id="jobName" style="font-size: 20px; text-align: right"></p>
 
         <p id="error" style="color:red; font-size: 20px; display:none;">
             Please upload both a resume and a job description!
@@ -79,29 +82,59 @@
     </div>
 </form>
 
-<p id="resumeName"></p>
-<p id="jobName"></p>
-
 <script>
+const form = document.getElementById("uploadForm");
 const resumeInput = document.getElementById("resume");
 const jobInput = document.getElementById("job");
 
+const resumeName = document.getElementById("resumeName");
+const jobName = document.getElementById("jobName");
+const error = document.getElementById("error");
+
+const output = document.createElement("p");
+document.body.appendChild(output);
+
 resumeInput.addEventListener("change", () => {
-    document.getElementById("resumeName").textContent = resumeInput.files[0]?.name || "";
+    resumeName.textContent = resumeInput.files[0]?.name || "";
 });
 
 jobInput.addEventListener("change", () => {
-    document.getElementById("jobName").textContent = jobInput.files[0]?.name || "";
+    jobName.textContent = jobInput.files[0]?.name || "";
 });
 
+form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // 🚫 no page reload
 
-document.getElementById("uploadForm").addEventListener("submit", function(e) {
+    error.style.display = "none";
+    output.textContent = "";
+
     if (!resumeInput.files.length || !jobInput.files.length) {
-        e.preventDefault(); // stop form submission
-        alert("Error: Please upload both a resume and a job description!");
-        document.getElementById("error").style.display = "block";
+        error.style.display = "block";
+        return;
+    }
+
+    const formData = new FormData(form);
+
+    output.textContent = "Uploading...";
+
+    try {
+        const res = await fetch("/upload", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            output.textContent = "✅ " + data.message;
+        } else {
+            output.textContent = "❌ " + data.error;
+        }
+    } catch (err) {
+        output.textContent = "❌ Server error";
     }
 });
+
 </script>
 
 </body>
