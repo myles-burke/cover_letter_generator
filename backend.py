@@ -2,17 +2,14 @@ from flask import Flask, request, render_template, jsonify
 import os
 from werkzeug.utils import secure_filename
 import shutil
-from dotenv import load_dotenv
+from aiCall import sendMessage
 
 app = Flask(__name__)
 
-load_dotenv()
-KEY = os.getenv("APIKEY")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "data")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 
 @app.route("/")
 def index():
@@ -32,8 +29,9 @@ def upload():
         job.save(os.path.join(UPLOAD_FOLDER, secure_filename(job.filename)))
 
         # Logic
-
-        return jsonify(success=True, message="Files uploaded!")
+        text = "describe earth"
+        response = sendMessage (text)
+        return jsonify(success=True, message=response)
 
     except Exception as e:
         print("UPLOAD ERROR:", e)

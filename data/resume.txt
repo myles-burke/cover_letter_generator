@@ -1,0 +1,36 @@
+Myles Gianni Burke
+burkemyles63@gmail.com | 703-901-8631 | Fairfax, VA
+myles-burke.github.io
+EDUCATION
+James Madison University, Harrisonburg, VA
+Bachelor of Science Computer Science
+Minor in Statistics
+GPA: 3.5
+SKILLS
+▪ Programming: Python, Java, C, Git, HTML, CSS, R (in progress - Fall 2025)
+▪ API: Alpaca Markets API, Twelve Data API, Telegram API, Market Stack API
+▪ Software: Word, Excel, Adobe Premiere Pro, DaVinci Resolve
+▪ Language: Upper-Intermediate Level of Mandarin (10 school years of study)
+INDEPENDENT PROJECTS
+Automated Trading Bot — Python (Mar 2025)
+▪ Developed an automated trading bot that integrates a multitude of different APIs.
+▪ Hosted daily on the cloud hosting platform Railway.
+Expected May 2027
+▪ Uses a variety of technical indicators and proper risk management for placing real-time orders, back testing
+custom strategies, retrieving historical market data, and sending real-time alerts.
+Cuisine Search — Java (Jul 2024)
+▪ Developed a Java GUI that finds nearby restaurants using web scrapping on Google Maps website.
+▪ Allows users to select a desired cuisine and generates a list of relevant nearby restaurants.
+CLASS PROJECTS
+Command-line shell — C, Team Project (September 2025)
+▪ Collaborated with a team of two to build a command-line shell with functionality similar to Bash.
+▪ Implemented commands such as pwd, which, chmod, head, and others.
+Recipe Editor — Java, Team Project (Oct 2024)
+▪ Worked in a team of five to develop a recipe editor in a Scrum-like environment.
+▪ Built features to create, edit, and manage recipes with a user-friendly interface.
+WORK HISTORY
+Harrisonburg Redevelopment Housing Authority
+Student Office Assistant, Part-time
+Jan 2024 - Current Harrisonburg, VA
+▪ Assist low-income families in the Harrisonburg area with their rent through housing vouchers
+▪ Perform administration tasks including filing, organizing, and editing paperwork

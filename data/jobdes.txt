@@ -1,0 +1,71 @@
+Job Title: Software Engineer
+Location: Remote / Hybrid / On-site
+Employment Type: Full-Time
+
+About the Role
+
+We are seeking a motivated Software Engineer to join our growing engineering team. In this role, you will design, develop, test, and maintain scalable software solutions that power our core products. You will collaborate closely with product managers, designers, and other engineers to deliver high-quality features.
+
+Responsibilities
+
+Design, develop, and maintain web and backend applications
+
+Write clean, efficient, and well-documented code
+
+Collaborate with cross-functional teams to define and implement new features
+
+Debug, test, and optimize application performance
+
+Participate in code reviews and contribute to best practices
+
+Maintain APIs and integrate third-party services
+
+Ensure application security and data protection
+
+Required Qualifications
+
+Bachelor’s degree in Computer Science, Software Engineering, or related field
+
+Proficiency in one or more programming languages (Python, Java, C++, JavaScript)
+
+Experience with web technologies (HTML, CSS, JavaScript)
+
+Familiarity with databases (SQL or NoSQL)
+
+Understanding of data structures, algorithms, and OOP principles
+
+Experience with Git or other version control systems
+
+Preferred Qualifications
+
+Experience with frameworks such as React, Node.js, Flask, or Django
+
+Knowledge of cloud platforms (AWS, Azure, or GCP)
+
+Experience with RESTful APIs
+
+Familiarity with CI/CD pipelines
+
+Exposure to Agile or Scrum development environments
+
+Nice to Have
+
+Experience with Docker or containerization
+
+Understanding of system design and scalability
+
+Personal projects or open-source contributions
+
+Experience building automation or data-driven applications
+
+Benefits
+
+Competitive salary
+
+Health, dental, and vision insurance
+
+Flexible work hours
+
+Professional development opportunities
+
+Paid time off
