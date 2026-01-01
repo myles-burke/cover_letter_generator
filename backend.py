@@ -25,12 +25,20 @@ def upload():
         if not resume or not job or resume.filename == "" or job.filename == "":
             return jsonify(success=False, error="Missing file"), 400
 
-        resume.save(os.path.join(UPLOAD_FOLDER, secure_filename(resume.filename)))
-        job.save(os.path.join(UPLOAD_FOLDER, secure_filename(job.filename)))
+        resumePath = os.path.join(UPLOAD_FOLDER, secure_filename(resume.filename))
+        resume.save(resumePath)
+        jobPath = os.path.join(UPLOAD_FOLDER, secure_filename(job.filename))
+        job.save(jobPath)
 
         # Logic
-        text = "describe earth"
-        response = sendMessage (text)
+        with open (resumePath, "r") as resumeFile:
+            resumeText = resumeFile.read()
+
+        with open (jobPath, "r") as jobFile:
+            jobText = jobFile.read()
+
+        response = sendMessage (resumeText, jobText)
+
         return jsonify(success=True, message=response)
 
     except Exception as e:

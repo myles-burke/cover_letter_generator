@@ -11,7 +11,7 @@
     .input_section {
         background-color: #f0f0f0;
         padding: 15px;
-        margin-top: 100px;
+        margin-top: 20px;
         margin-bottom: 20px;
         text-align: center;
         font-size: 10px;
@@ -46,18 +46,33 @@
         font-size: 15px;
     }
 
+    .output {
+        padding: 20px;
+        white-space: pre-wrap;
+        font-family: inherit;
+        margin: auto;
+        max-width: 700px;
+        margin-top: 30px;
+        line-height: 1.6;
+        background-color: #f0f0f0;
+        border: 2px solid #ccc;
+        font-family: Georgia, "Times New Roman", serif;
+
+    }
+
 </style>
 </head>
 
 <body>
 <header>
-    <h1>Generate a Cover Letter</h1>
+    <p style="padding-top: 1px;"></p>
+    <h1>Cover Letter Generator</h1>
 </header>
 
 <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
     <div class="input_section">
-        <h1>
-            Add a resume and job description
+        <h1 style="color: green;">
+            Add a resume and job description:
         </h1>
         <label class="upload">
             Resume
@@ -82,6 +97,8 @@
     </div>
 </form>
 
+<div id="output" class="output" hidden></div>
+
 <script>
 const form = document.getElementById("uploadForm");
 const resumeInput = document.getElementById("resume");
@@ -91,8 +108,7 @@ const resumeName = document.getElementById("resumeName");
 const jobName = document.getElementById("jobName");
 const error = document.getElementById("error");
 
-const output = document.createElement("p");
-document.body.appendChild(output);
+const output = document.getElementById("output");
 
 resumeInput.addEventListener("change", () => {
     resumeName.textContent = resumeInput.files[0]?.name || "";
@@ -103,7 +119,7 @@ jobInput.addEventListener("change", () => {
 });
 
 form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // 🚫 no page reload
+    e.preventDefault(); //  no page reload
 
     error.style.display = "none";
     output.textContent = "";
@@ -115,6 +131,7 @@ form.addEventListener("submit", async (e) => {
 
     const formData = new FormData(form);
 
+    output.hidden = false;
     output.textContent = "Uploading...";
 
     try {
@@ -126,7 +143,7 @@ form.addEventListener("submit", async (e) => {
         const data = await res.json();
 
         if (data.success) {
-            output.textContent = "✅ " + data.message;
+            output.textContent = data.message;
         } else {
             output.textContent = "❌ " + data.error;
         }
