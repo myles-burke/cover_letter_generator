@@ -6,7 +6,6 @@ from aiCall import sendMessage
 
 app = Flask(__name__)
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "data")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -47,4 +46,3 @@ def upload():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    # Clean folder
