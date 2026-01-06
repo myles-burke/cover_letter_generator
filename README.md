@@ -1,1 +1,1 @@
-# cover_letter_generator
+This web application generates a professional, customized cover letter from a user's resume and a job description. The generated cover letter is displayed quickly and can be easily copied to the user's clipboard.
